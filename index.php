@@ -97,9 +97,24 @@
                 </div>
                 <div class="modal-body">
                         <form name="login-form" ng-submit="loginCtrl.login()">
-                                <input type="email" ng-model="loginCtrl.email" placeholder="email address" required /> <br/>
-                                <input type="password" ng-model="loginCtrl.password" placeholder="password" required /> <br/>
+                                <input type="email" ng-model="loginCtrl.email" placeholder="email address" required /> 
+                                <input type="password" ng-model="loginCtrl.password" placeholder="password" required /> <br/> <br/>
                                 <input type="submit" value="Login"> <br/>
+                        </form>
+                </div>
+                <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel1">Sign up</h4>
+                </div>
+                <div class="modal-footer">
+                </div>
+                <div class="modal-body">
+                        <form name="signup-form" ng-submit="loginCtrl.signup()">
+                                <input type="text" ng-model="loginCtrl.firstName" placeholder="First name" required /> 
+                                <input type="text" ng-model="loginCtrl.lastName" placeholder="Last name" required /> <br/>
+                                <input type="email" ng-model="loginCtrl.email" placeholder="email address" required /> 
+                                <input type="text" ng-model="loginCtrl.phoneNumber" placeholder="Phone" required /> <br/>
+                                <input type="password" ng-model="loginCtrl.password" placeholder="Password" required /> <br/> <br/>
+                                <input type="submit" value="Sign up"> <br/>
                         </form>
                 </div>
                 <div class="modal-footer">
