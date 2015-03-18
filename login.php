@@ -12,7 +12,7 @@ do{
     }
     // password and email are set, validate against the db
     try {
-        $conn = new PDO ("sqlsrv:server = tcp:lxi9spfs47.database.windows.net,1433; Database = keneticfitness-database", "keneticfitness-database", "{J>a3B0;mp}");
+        $conn = new PDO ("sqlsrv:server = tcp:lxi9spfs47.database.windows.net,1433; Database = keneticfitness-database", "keneticfitness-database", "{}");
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 
         $stmt = $conn->prepare("select client_id from client_t where client_email = :email and client_password = :password ");
