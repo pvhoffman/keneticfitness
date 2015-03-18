@@ -21,9 +21,13 @@
                     this.invalidSignupMessage = "";
 
                     this.login = function(){
-                        //alert(this.loginEmail);
+                        var ctrl = this;
                         $http.get('login.php', {params : {email : this.loginEmail, password : this.loginPassword}})
                             .success(function(data, status, headers, config){
+                                if(data.errors){
+                                        ctrl.invalidLogin = true;
+                                        ctrl.invalidLoginMessage = data.errors;
+                                }
                             }) 
                         .error(function(data, status, headers, config){
                         });
