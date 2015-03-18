@@ -96,10 +96,14 @@
                         <h4 class="modal-title" id="myModalLabel">Login</h4>
                 </div>
                 <div class="modal-body">
-                        <form name="login-form" ng-submit="loginCtrl.login()">
-                                <input type="email" ng-model="loginCtrl.email" placeholder="email address" required /> 
-                                <input type="password" ng-model="loginCtrl.password" placeholder="password" required /> <br/> <br/>
-                                <input type="submit" value="Login"> <br/>
+                        <form name="login-form" ng-submit="loginCtrl.login()" novalidate>
+                                <div class="form-group">
+                                        <input type="email" ng-model="loginCtrl.email" class="form-control" placeholder="Email address" required /> 
+                                </div>
+                                <div class="form-group">
+                                        <input type="password" ng-model="loginCtrl.password" class="form-control" placeholder="Password" required />
+                                </div>
+                                <button type="submit" class="btn btn-default">Login</button>
                         </form>
                 </div>
                 <div class="modal-header">
@@ -108,13 +112,23 @@
                 <div class="modal-footer">
                 </div>
                 <div class="modal-body">
-                        <form name="signup-form" ng-submit="loginCtrl.signup()">
-                                <input type="text" ng-model="loginCtrl.firstName" placeholder="First name" required /> 
-                                <input type="text" ng-model="loginCtrl.lastName" placeholder="Last name" required /> <br/>
-                                <input type="email" ng-model="loginCtrl.email" placeholder="email address" required /> 
-                                <input type="text" ng-model="loginCtrl.phoneNumber" placeholder="Phone" required /> <br/>
-                                <input type="password" ng-model="loginCtrl.password" placeholder="Password" required /> <br/> <br/>
-                                <input type="submit" value="Sign up"> <br/>
+                        <form name="signup-form" ng-submit="loginCtrl.signup()" novalidate>
+                                <div class="form-group">
+                                        <input type="text" ng-model="loginCtrl.firstName" class="form-control" placeholder="First name" required /> 
+                                </div>
+                                <div class="form-group">
+                                        <input type="text" ng-model="loginCtrl.lastName" class="form-control" placeholder="Last name" required />
+                                </div>
+                                <div class="form-group">
+                                        <input type="email" ng-model="loginCtrl.email" class="form-control" placeholder="Email address" required /> 
+                                </div>
+                                <div class="form-group">
+                                        <input type="text" ng-model="loginCtrl.phoneNumber" class="form-control" placeholder="Phone number" required />
+                                </div>
+                                <div class="form-group">
+                                        <input type="password" ng-model="loginCtrl.password" class="form-control" placeholder="Password" required />
+                                </div>
+                                <button type="submit" class="btn btn-default">Sign up</button>
                         </form>
                 </div>
                 <div class="modal-footer">
