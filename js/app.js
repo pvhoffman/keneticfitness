@@ -1,28 +1,43 @@
 (function(){
-    var app = angular.module('keneticfitness', []);
+    var app = angular.module("keneticfitness", []);
 
-    app.controller("LoginController", ['$http', function($http){
-        this.email = "";
-        this.password = "";
-        this.firstName = "";
-        this.lastName = "";
-        this.phoneNumber = "";
+    app.directive("loginSignup", ["$http", function($http){
+        return {
+                restrict       : "E"
+                , templateUrl  : "login-signup.html"
+                , controllerAs : "loginCtrl"
+                , controller   : function(){
+                    this.loginEmail = "";
+                    this.loginPassword = "";
+                    this.signupFirstName = "";
+                    this.signupLastName = "";
+                    this.signupPhoneNumber = "";
+                    this.signupPassword = "";
 
-        this.invalidLogin = false;
-        this.invalidLoginMessage = "";
-        this.login = function(){
-            $http.get('login.php', {params : {email : this.email, password : this.password}})
-                 .success(function(data, status, headers, config){
-                 }) 
-                 .error(function(data, status, headers, config){
-                 });
+                    this.invalidLogin = false;
+                    this.invalidLoginMessage = "";
+
+                    this.invalidSignup = false;
+                    this.invalidSignupMessage = "";
+
+                    this.login = function(){
+                        //alert(this.loginEmail);
+                        $http.get('login.php', {params : {email : this.loginEmail, password : this.loginPassword}})
+                            .success(function(data, status, headers, config){
+                            }) 
+                        .error(function(data, status, headers, config){
+                        });
+                    };
+                    this.signup = function() {
+                        $http.get('signup.php', {params : {firstName : this.signupFirstName, lastName : this.signupLastName, phoneNumber : this.signupPhoneNumber, email : this.signupEmail, password : this.signupPassword}})
+                            .success(function(data, status, headers, config){
+                            }) 
+                        .error(function(data, status, headers, config){
+                        });
+                    }
+                }
         };
-        this.signup = function() {
-            $http.get('signup.php', {params : {firstName : this.firstName, lastName : this.lastName, phoneNumber : this.phoneNumber, email : this.email, password : this.password}})
-                 .success(function(data, status, headers, config){
-                 }) 
-                 .error(function(data, status, headers, config){
-                 });
-        }
     }]);
+
 })();    
+
