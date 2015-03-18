@@ -6,14 +6,12 @@
         this.password = "";
         this.invalidLogin = false;
         this.invalidLoginMessage = "";
-        this.existingLogin = function(){
-            // alert(this.email);
-            // alert(this.password);
-            $http.get('/login', {'email' : this.email, 'password' : this.password})
-                .success(function(data, status, headers, config){
-                }) 
-                .error(function(data, status, headers, config){
-                });
+        this.login = function(){
+            $http.get('login.php', {params : {email : this.email, password : this.password}})
+                 .success(function(data, status, headers, config){
+                 }) 
+                 .error(function(data, status, headers, config){
+                 });
         };
     }]);
 })();    
