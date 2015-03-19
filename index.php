@@ -30,7 +30,7 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
-    <div class="navbar-wrapper">
+    <div  class="navbar-wrapper">
       <div class="container">
 
         <nav class="navbar navbar-inverse navbar-static-top">
@@ -77,9 +77,15 @@
                 <li><a href="#contact">Contact</a></li>
               </ul>
 <!-- login -->
-              <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
+              <ul ng-controller="NavbarClientController as navbarCtrl" class="nav navbar-nav navbar-right">
+                <li ng-hide="navbarCtrl.isLoggedIn()" class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#modal-login" role="button" aria-expanded="false">Login <span class="caret"></span></a>
+                </li>
+                <li ng-show="navbarCtrl.isLoggedIn()" class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> {{ navbarCtrl.userEmail() }} <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a ng-click="navbarCtrl.logout()" href="#">Logout</a></li>
+                  </ul>
                 </li>
               </ul>
             </div>
